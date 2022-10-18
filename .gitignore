@@ -1,0 +1,9 @@
+.idea/
+reports
+target
+*.iml
+debug.log
+.allure
+.gradle
+/build/
+
