@@ -29,4 +29,8 @@ public class BasePage {
         getWait().until(ExpectedConditions.visibilityOfElementLocated(By.linkText(linkText)))
                 .click();
     }
+
+    public void waitUntilUrlContains(String fraction) {
+        getWait().until(ExpectedConditions.urlContains(fraction));
+    }
 }
