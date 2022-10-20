@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HomePage extends BasePage {
 
@@ -21,11 +20,11 @@ public class HomePage extends BasePage {
         return new LoginPage(getDriver());
     }
 
-//    public HoversPage clickHoversLink() {
-//        clickLink("Hovers");
-//        waitUntilUrlContains("hovers");
-//        return new HoversPage(getDriver());
-//    }
+    public HoversPage clickHoversLink() {
+        clickLink("Hovers");
+        waitUntilUrlContains("hovers");
+        return new HoversPage(getDriver());
+    }
 
     public ShiftingContentPage clickShiftingContentLink() {
         clickLink("Shifting Content");
