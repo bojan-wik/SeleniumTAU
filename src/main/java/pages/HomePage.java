@@ -11,19 +11,25 @@ public class HomePage extends BasePage {
 
     public DropdownPage clickDropdownLink() {
         clickLink("Dropdown");
-        getWait().until(ExpectedConditions.urlContains("dropdown"));
+        waitUntilUrlContains("dropdown");
         return new DropdownPage(getDriver());
     }
 
     public LoginPage clickFormAuthenticationLink() {
         clickLink("Form Authentication");
-        getWait().until(ExpectedConditions.urlContains("login"));
+        waitUntilUrlContains("login");
         return new LoginPage(getDriver());
     }
 
+//    public HoversPage clickHoversLink() {
+//        clickLink("Hovers");
+//        waitUntilUrlContains("hovers");
+//        return new HoversPage(getDriver());
+//    }
+
     public ShiftingContentPage clickShiftingContentLink() {
         clickLink("Shifting Content");
-        getWait().until(ExpectedConditions.urlContains("shifting_content"));
+        waitUntilUrlContains("shifting_content");
         return new ShiftingContentPage(getDriver());
     }
 }
