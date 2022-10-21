@@ -28,7 +28,7 @@ public class HoversPage extends BasePage {
     public class ImageCaption {
 
         private WebElement caption;
-        private By name = By.tagName("h5");
+        private By title = By.tagName("h5");
         private By link = By.tagName("a");
 
         public ImageCaption(WebElement caption) {
@@ -39,8 +39,8 @@ public class HoversPage extends BasePage {
             return caption.isDisplayed();
         }
 
-        public String getName() {
-            return caption.findElement(name).getText();
+        public String getTitle() {
+            return caption.findElement(title).getText();
         }
 
         public String getLink() {
