@@ -1,6 +1,7 @@
 package keypresses;
 
 import base.BaseTest;
+import org.openqa.selenium.Keys;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.KeyPressesPage;
@@ -8,15 +9,15 @@ import pages.KeyPressesPage;
 public class KeyPressesTests extends BaseTest {
 
     @Test
-    public void test1() {
+    public void backspaceTest() {
         KeyPressesPage keyPressesPage = homePage.clickKeyPressesLink();
-        keyPressesPage.pressKeyR();
-
-        System.out.println(keyPressesPage.getResult());
-        Assert.assertEquals(keyPressesPage.getResult(), "You entered: R");
-
-        keyPressesPage.pressKeyBackspace();
-        System.out.println(keyPressesPage.getResult());
+        keyPressesPage.enterText("A" + Keys.BACK_SPACE);
         Assert.assertEquals(keyPressesPage.getResult(), "You entered: BACK_SPACE");
+    }
+
+    @Test
+    public void dollarCharTest() {
+        KeyPressesPage keyPressesPage = homePage.clickKeyPressesLink();
+        keyPressesPage.enterDollarChar();
     }
 }

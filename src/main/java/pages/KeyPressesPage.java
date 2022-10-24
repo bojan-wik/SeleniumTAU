@@ -10,15 +10,15 @@ public class KeyPressesPage extends BasePage {
         super(driver);
     }
 
-    private By inputForm = By.id("target");
+    private By inputField = By.id("target");
     private By resultBox = By.id("result");
 
-    public void pressKeyR() {
-        getDriver().findElement(inputForm).sendKeys("r");
+    public void enterText(String text) {
+        getDriver().findElement(inputField).sendKeys(text);
     }
 
-    public void pressKeyBackspace() {
-        getDriver().findElement(inputForm).sendKeys(Keys.BACK_SPACE);
+    public void enterDollarChar() {
+        enterText(Keys.chord(Keys.SHIFT, "4") + " = 4,87 PLN");
     }
 
     public String getResult() {
