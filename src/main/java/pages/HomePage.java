@@ -20,6 +20,12 @@ public class HomePage extends BasePage {
         return new LoginPage(getDriver());
     }
 
+    public HorizontalSliderPage clickHorizontalSliderLink() {
+        clickLink("Horizontal Slider");
+        waitUntilUrlContains("horizontal_slider");
+        return new HorizontalSliderPage(getDriver());
+    }
+
     public HoversPage clickHoversLink() {
         clickLink("Hovers");
         waitUntilUrlContains("hovers");
