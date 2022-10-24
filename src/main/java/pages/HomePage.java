@@ -26,6 +26,12 @@ public class HomePage extends BasePage {
         return new HoversPage(getDriver());
     }
 
+    public KeyPressesPage clickKeyPressesLink() {
+        clickLink("Key Presses");
+        waitUntilUrlContains("key_presses");
+        return new KeyPressesPage(getDriver());
+    }
+
     public ShiftingContentPage clickShiftingContentLink() {
         clickLink("Shifting Content");
         waitUntilUrlContains("shifting_content");
