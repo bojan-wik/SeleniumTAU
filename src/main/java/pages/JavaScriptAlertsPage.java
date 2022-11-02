@@ -10,17 +10,31 @@ public class JavaScriptAlertsPage extends BasePage {
         super(driver);
     }
 
-    private By triggerAlertButton = By.cssSelector("button[onclick='jsAlert()']");
+    private By triggerAlertPopupButton = By.cssSelector("button[onclick='jsAlert()']");
+    private By triggerConfirmPopupButton = By.cssSelector("button[onclick='jsConfirm()']");
     private By resultTextBox = By.id("result");
 
-    public JavaScriptAlertsPage triggerAlert() {
-        getWait().until(ExpectedConditions.elementToBeClickable(triggerAlertButton)).click();
+    public JavaScriptAlertsPage triggerAlertPopup() {
+        getWait().until(ExpectedConditions.elementToBeClickable(triggerAlertPopupButton)).click();
         return new JavaScriptAlertsPage(getDriver());
     }
 
-    public void clickOkButtonOnJsAlert() {
+    public JavaScriptAlertsPage triggerConfirmPopup() {
+        getWait().until(ExpectedConditions.elementToBeClickable(triggerConfirmPopupButton)).click();
+        return new JavaScriptAlertsPage(getDriver());
+    }
+
+    public void popup_clickToAccept() {
         getWait().until(ExpectedConditions.alertIsPresent()).accept();
 //        getDriver().switchTo().alert().accept();
+    }
+
+    public void popup_clickToDismiss() {
+        getWait().until(ExpectedConditions.alertIsPresent()).dismiss();
+    }
+
+    public String popup_getText() {
+        return getWait().until(ExpectedConditions.alertIsPresent()).getText();
     }
 
     public String getResultText() {
