@@ -14,26 +14,19 @@ public class HorizontalSliderPage extends BasePage {
     private By slider = By.cssSelector("input[type='range']");
     private By resultText = By.id("range");
 
-    public HorizontalSliderPage clickOnSlider() {
-        getDriver().findElement(slider).click();
-        return this;
-    }
-
     /**
-      * @param direction left or right
+     * @param direction left or right
      */
-    public void moveSlider(String direction) {
+    public void moveSlider(String direction, int numberOfSteps) {
         WebElement sliderElement = getDriver().findElement(slider);
-        switch (direction) {
-            case "left":
-                System.out.println("moving slider left");
-                break;
-            case "right":
+        for (int i = 0; i < numberOfSteps; i++) {
+            if (direction.equals("left")) {
+                sliderElement.sendKeys(Keys.ARROW_LEFT);
+            } else if (direction.equals("right")) {
                 sliderElement.sendKeys(Keys.ARROW_RIGHT);
-                sliderElement.sendKeys(Keys.ARROW_RIGHT);
-                break;
-            default:
-                throw new IllegalStateException("No such option in the switch statement");
+            } else {
+                throw new IllegalArgumentException("Invalid direction argument");
+            }
         }
     }
 
