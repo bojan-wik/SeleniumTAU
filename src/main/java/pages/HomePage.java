@@ -32,6 +32,12 @@ public class HomePage extends BasePage {
         return new HoversPage(getDriver());
     }
 
+    public JavaScriptAlertsPage clickJavaScriptAlertsLink() {
+        clickLink("JavaScript Alerts");
+        waitUntilUrlContains("javascript_alerts");
+        return new JavaScriptAlertsPage(getDriver());
+    }
+
     public KeyPressesPage clickKeyPressesLink() {
         clickLink("Key Presses");
         waitUntilUrlContains("key_presses");
