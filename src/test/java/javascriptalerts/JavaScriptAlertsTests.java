@@ -23,4 +23,13 @@ public class JavaScriptAlertsTests extends BaseTest {
                 "Confirm popup text incorrect");
         javaScriptAlertsPage.popup_clickToDismiss();
     }
+
+    @Test
+    public void enterTextInPromptPopupTest() {
+        JavaScriptAlertsPage javaScriptAlertsPage = homePage.clickJavaScriptAlertsLink();
+        String text = "dupa dupa dupa";
+        javaScriptAlertsPage.triggerPromptPopup().popup_sendText(text).popup_clickToAccept();
+        Assert.assertEquals(javaScriptAlertsPage.getResultText(), "You entered: " + text,
+                "Result text incorrect");
+    }
 }

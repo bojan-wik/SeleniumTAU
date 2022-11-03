@@ -12,6 +12,7 @@ public class JavaScriptAlertsPage extends BasePage {
 
     private By triggerAlertPopupButton = By.cssSelector("button[onclick='jsAlert()']");
     private By triggerConfirmPopupButton = By.cssSelector("button[onclick='jsConfirm()']");
+    private By triggerPromptPopupButton = By.cssSelector("button[onclick='jsPrompt()']");
     private By resultTextBox = By.id("result");
 
     public JavaScriptAlertsPage triggerAlertPopup() {
@@ -21,6 +22,11 @@ public class JavaScriptAlertsPage extends BasePage {
 
     public JavaScriptAlertsPage triggerConfirmPopup() {
         getWait().until(ExpectedConditions.elementToBeClickable(triggerConfirmPopupButton)).click();
+        return new JavaScriptAlertsPage(getDriver());
+    }
+
+    public JavaScriptAlertsPage triggerPromptPopup() {
+        getWait().until(ExpectedConditions.elementToBeClickable(triggerPromptPopupButton)).click();
         return new JavaScriptAlertsPage(getDriver());
     }
 
@@ -35,6 +41,11 @@ public class JavaScriptAlertsPage extends BasePage {
 
     public String popup_getText() {
         return getWait().until(ExpectedConditions.alertIsPresent()).getText();
+    }
+
+    public JavaScriptAlertsPage popup_sendText(String text) {
+        getWait().until(ExpectedConditions.alertIsPresent()).sendKeys(text);
+        return this;
     }
 
     public String getResultText() {
