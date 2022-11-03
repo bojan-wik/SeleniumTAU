@@ -14,6 +14,12 @@ public class HomePage extends BasePage {
         return new DropdownPage(getDriver());
     }
 
+    public FileUploadPage clickFileUploadLink() {
+        clickLink("File Upload");
+        waitUntilUrlContains("upload");
+        return new FileUploadPage(getDriver());
+    }
+
     public LoginPage clickFormAuthenticationLink() {
         clickLink("Form Authentication");
         waitUntilUrlContains("login");
