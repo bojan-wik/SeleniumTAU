@@ -8,6 +8,12 @@ public class HomePage extends BasePage {
         super(driver);
     }
 
+    public ContextMenuPage clickContextMenuLink() {
+        clickLink("Context Menu");
+        waitUntilUrlContains("context_menu");
+        return new ContextMenuPage(getDriver());
+    }
+
     public DropdownPage clickDropdownLink() {
         clickLink("Dropdown");
         waitUntilUrlContains("dropdown");
