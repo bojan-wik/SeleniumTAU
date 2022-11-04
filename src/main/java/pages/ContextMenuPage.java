@@ -16,7 +16,4 @@ public class ContextMenuPage extends BasePage {
         getWait().until(ExpectedConditions.elementToBeClickable(box));
         getActions().contextClick(getDriver().findElement(box)).perform();
     }
-
-    // TODO: 04.11.2022 po co powielać tą metodę
-//    public String popup_getText
 }
