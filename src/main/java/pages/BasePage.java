@@ -40,4 +40,21 @@ public class BasePage {
     public void waitUntilUrlContains(String fraction) {
         getWait().until(ExpectedConditions.urlContains(fraction));
     }
+
+    public void popup_clickToAccept() {
+        getWait().until(ExpectedConditions.alertIsPresent()).accept();
+//        getDriver().switchTo().alert().accept();
+    }
+
+    public void popup_clickToDismiss() {
+        getWait().until(ExpectedConditions.alertIsPresent()).dismiss();
+    }
+
+    public String popup_getText() {
+        return getWait().until(ExpectedConditions.alertIsPresent()).getText();
+    }
+
+    public void popup_sendText(String text) {
+        getWait().until(ExpectedConditions.alertIsPresent()).sendKeys(text);
+    }
 }
