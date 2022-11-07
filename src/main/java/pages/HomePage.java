@@ -61,4 +61,10 @@ public class HomePage extends BasePage {
         waitUntilUrlContains("shifting_content");
         return new ShiftingContentPage(getDriver());
     }
+
+    public WysiwygEditorPage clickWysiwygEditorLink() {
+        clickLink("WYSIWYG Editor");
+        waitUntilUrlContains("tinymce");
+        return new WysiwygEditorPage(getDriver());
+    }
 }
