@@ -1,9 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class WysiwygEditorPage extends BasePage {
@@ -16,28 +14,37 @@ public class WysiwygEditorPage extends BasePage {
     private By editorTextArea = By.id("tinymce");
     private By increaseIndentButton = By.cssSelector("button[title='Increase indent']");
 
-    public void clearTextArea() {
-        switchToEditor();
-        getWait().until(ExpectedConditions.visibilityOfElementLocated(editorTextArea)).clear();
-
-    }
-
-    private void switchToEditor() {
+    private void switchToEditorFrame() {
         getDriver().switchTo().frame(editorIframeId);
     }
 
-    public void clearEditorAndSetText(String text) {
-//        switchToEditor();
-        clearTextArea();
-        // TODO: 5:45
-        WebElement editorElement = getDriver().findElement(editorTextArea);
-//        getWait().until(ExpectedConditions.visibilityOf(editorElement)).clear();
-        editorElement.sendKeys("hello ");
-
+    private void switchToMainFrame() {
         getDriver().switchTo().parentFrame();
-        getWait().until(ExpectedConditions.elementToBeClickable(increaseIndentButton)).click();
+    }
 
-        switchToEditor();
-        editorElement.sendKeys("world");
+    public WysiwygEditorPage clickIncreaseIndentButton() {
+        getWait().until(ExpectedConditions.elementToBeClickable(increaseIndentButton)).click();
+        return this;
+    }
+
+    public WysiwygEditorPage clearTextArea() {
+        switchToEditorFrame();
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(editorTextArea)).clear();
+        switchToMainFrame();
+        return this;
+    }
+
+    public WysiwygEditorPage setTextArea(String text) {
+        switchToEditorFrame();
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(editorTextArea)).sendKeys(text);
+        switchToMainFrame();
+        return this;
+    }
+
+    public String getTextFromEditor() {
+        switchToEditorFrame();
+        String text = getWait().until(ExpectedConditions.visibilityOfElementLocated(editorTextArea)).getText();
+        switchToMainFrame();
+        return text;
     }
 }
