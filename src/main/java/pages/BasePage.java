@@ -32,14 +32,22 @@ public class BasePage {
         return actions;
     }
 
+    // generic actions
+
     public void clickLink(String linkText) {
         getWait().until(ExpectedConditions.visibilityOfElementLocated(By.linkText(linkText)))
                 .click();
     }
 
+    public void switchToMainFrame() {
+        getDriver().switchTo().parentFrame();
+    }
+
     public void waitUntilUrlContains(String fraction) {
         getWait().until(ExpectedConditions.urlContains(fraction));
     }
+
+    // popup/alert generic actions
 
     public void popup_clickToAccept() {
         getWait().until(ExpectedConditions.alertIsPresent()).accept();
