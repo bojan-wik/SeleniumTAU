@@ -32,6 +32,12 @@ public class HomePage extends BasePage {
         return new LoginPage(getDriver());
     }
 
+    public FramesPage clickFramesLink() {
+        clickLink("Frames");
+        waitUntilUrlContains("frames");
+        return new FramesPage(getDriver());
+    }
+
     public HorizontalSliderPage clickHorizontalSliderLink() {
         clickLink("Horizontal Slider");
         waitUntilUrlContains("horizontal_slider");
