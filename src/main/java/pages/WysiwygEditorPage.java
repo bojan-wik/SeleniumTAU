@@ -18,10 +18,6 @@ public class WysiwygEditorPage extends BasePage {
         getDriver().switchTo().frame(editorIframeId);
     }
 
-    private void switchToMainFrame() {
-        getDriver().switchTo().parentFrame();
-    }
-
     public WysiwygEditorPage clickIncreaseIndentButton() {
         getWait().until(ExpectedConditions.elementToBeClickable(increaseIndentButton)).click();
         return this;
