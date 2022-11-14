@@ -20,6 +20,12 @@ public class HomePage extends BasePage {
         return new DropdownPage(getDriver());
     }
 
+    public DynamicLoadingPage clickDynamicLoadingLink() {
+        clickLink("Dynamic Loading");
+        waitUntilUrlContains("dynamic_loading");
+        return new DynamicLoadingPage(getDriver());
+    }
+
     public FileUploadPage clickFileUploadLink() {
         clickLink("File Upload");
         waitUntilUrlContains("upload");
