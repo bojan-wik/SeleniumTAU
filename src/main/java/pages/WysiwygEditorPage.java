@@ -26,21 +26,21 @@ public class WysiwygEditorPage extends BasePage {
     public WysiwygEditorPage clearTextArea() {
         switchToEditorFrame();
         getWait().until(ExpectedConditions.visibilityOfElementLocated(editorTextArea)).clear();
-        switchToMainFrame();
+        switchToParentFrame();
         return this;
     }
 
     public WysiwygEditorPage setTextArea(String text) {
         switchToEditorFrame();
         getWait().until(ExpectedConditions.visibilityOfElementLocated(editorTextArea)).sendKeys(text);
-        switchToMainFrame();
+        switchToParentFrame();
         return this;
     }
 
     public String getTextFromEditor() {
         switchToEditorFrame();
         String text = getWait().until(ExpectedConditions.visibilityOfElementLocated(editorTextArea)).getText();
-        switchToMainFrame();
+        switchToParentFrame();
         return text;
     }
 }

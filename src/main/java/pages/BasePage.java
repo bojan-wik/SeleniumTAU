@@ -39,7 +39,7 @@ public class BasePage {
                 .click();
     }
 
-    public void switchToMainFrame() {
+    public void switchToParentFrame() {
         getDriver().switchTo().parentFrame();
     }
 
