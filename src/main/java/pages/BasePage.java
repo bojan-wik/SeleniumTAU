@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
 
-    private final static int TIMEOUT = 15;
+    private final static int EXPLICIT_WAIT_TIMEOUT = 20;
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -16,7 +16,7 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, TIMEOUT);
+        this.wait = new WebDriverWait(driver, EXPLICIT_WAIT_TIMEOUT); // Setting explicit wait
         this.actions = new Actions(driver);
     }
 
