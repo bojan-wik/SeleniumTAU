@@ -2,23 +2,25 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
 
+import java.util.concurrent.TimeUnit;
+
 public class BaseTest {
 
+    private final static int IMPLICIT_WAIT_TIMEOUT = 15;
+
     private WebDriver driver;
-    private WebDriverWait wait;
     protected HomePage homePage;
 
     @BeforeClass
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Tools\\Webdrivers\\Chrome\\107\\chromedriver.exe");
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, 5);
+        driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT_TIMEOUT, TimeUnit.SECONDS); // Setting implicit wait
         goHome();
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
