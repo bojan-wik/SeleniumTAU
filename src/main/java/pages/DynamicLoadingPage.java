@@ -13,4 +13,10 @@ public class DynamicLoadingPage extends BasePage {
         waitUntilUrlContains("dynamic_loading/1");
         return new DynamicLoadingExample1Page(getDriver());
     }
+
+    public DynamicLoadingExample2Page clickExample2Link() {
+        clickLink("Example 2: Element rendered after the fact");
+        waitUntilUrlContains("dynamic_loading/2");
+        return new DynamicLoadingExample2Page(getDriver());
+    }
 }
