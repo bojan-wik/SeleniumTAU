@@ -1,11 +1,11 @@
-package javascriptalerts;
+package alerts;
 
 import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.JavaScriptAlertsPage;
 
-public class JavaScriptAlertsTests extends BaseTest {
+public class AlertsTests extends BaseTest {
 
     @Test
     public void acceptAlertPopupTest() {
