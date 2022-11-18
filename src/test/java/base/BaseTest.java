@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    private final static int IMPLICIT_WAIT_TIMEOUT = 15;
+    private final static int IMPLICIT_WAIT_TIMEOUT = 5;
 
     private WebDriver driver;
     protected HomePage homePage;
