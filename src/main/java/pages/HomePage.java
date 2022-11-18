@@ -56,6 +56,12 @@ public class HomePage extends BasePage {
         return new HoversPage(getDriver());
     }
 
+    public InfiniteScrollPage clickInfiniteScrollLink() {
+        clickLink("Infinite Scroll");
+        waitUntilUrlContains("infinite_scroll");
+        return new InfiniteScrollPage(getDriver());
+    }
+
     public JavaScriptAlertsPage clickJavaScriptAlertsLink() {
         clickLink("JavaScript Alerts");
         waitUntilUrlContains("javascript_alerts");
@@ -66,6 +72,12 @@ public class HomePage extends BasePage {
         clickLink("Key Presses");
         waitUntilUrlContains("key_presses");
         return new KeyPressesPage(getDriver());
+    }
+
+    public LargeAndDeepDom clickLargeAndDeepDomLink() {
+        clickLink("Large & Deep DOM");
+        waitUntilUrlContains("large");
+        return new LargeAndDeepDom(getDriver());
     }
 
     public ShiftingContentPage clickShiftingContentLink() {
