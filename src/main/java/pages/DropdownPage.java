@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
@@ -27,5 +28,12 @@ public class DropdownPage extends BasePage {
     public List<String> getSelectedOptions() {
         List<WebElement> selectedElements = getDropdownElement().getAllSelectedOptions();
         return selectedElements.stream().map(element -> element.getText()).collect(Collectors.toList());
+    }
+
+    public void addMultipleAttribute() {
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(dropdown));
+        String script = "document.querySelector('#dropdown').setAttribute('multiple', '')";
+        jsExecutor.executeScript(script);
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#dropdown[multiple]")));
     }
 }
