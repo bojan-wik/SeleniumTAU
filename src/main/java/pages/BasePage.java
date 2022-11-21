@@ -11,6 +11,7 @@ public class BasePage {
 
     private final static int EXPLICIT_WAIT_TIMEOUT = 20;
 
+    // TODO: 21.11.2022 zmienić resztę private fieldów na protected (a la jsExecutor) i usunąć ich gettery
     private WebDriver driver;
     private WebDriverWait wait;
     private Actions actions;
