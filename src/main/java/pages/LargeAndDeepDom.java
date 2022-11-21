@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -16,6 +15,6 @@ public class LargeAndDeepDom extends BasePage {
     public void scrollToTable() {
         WebElement tableElement = getDriver().findElement(table);
         String script = "arguments[0].scrollIntoView();";
-        ((JavascriptExecutor)getDriver()).executeScript(script, tableElement);
+        jsExecutor.executeScript(script, tableElement);
     }
 }

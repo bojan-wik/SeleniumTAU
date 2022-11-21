@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 public class InfiniteScrollPage extends BasePage {
@@ -14,8 +13,6 @@ public class InfiniteScrollPage extends BasePage {
 
     public void scrollToNthParagraph(int n) {
         String script =  "window.scrollTo(0, document.body.scrollHeight)";
-        JavascriptExecutor jsExecutor =  (JavascriptExecutor)getDriver();
-
         while (getNumberOfParagraphsPresent() < n) {
             jsExecutor.executeScript(script);
         }
