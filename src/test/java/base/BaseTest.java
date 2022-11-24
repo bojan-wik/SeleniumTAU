@@ -31,7 +31,7 @@ public class BaseTest {
         driver.get("https://the-internet.herokuapp.com/");
     }
 
-//    @AfterClass
+    @AfterClass
     public void tearDown() {
         driver.quit();
     }
