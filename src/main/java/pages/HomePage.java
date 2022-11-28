@@ -68,6 +68,12 @@ public class HomePage extends BasePage {
         return new JavaScriptAlertsPage(getDriver());
     }
 
+    public MultipleWindowsPage clickMultipleWindowsLink() {
+        clickLink("Multiple Windows");
+        waitUntilUrlContains("windows");
+        return new MultipleWindowsPage(getDriver());
+    }
+
     public KeyPressesPage clickKeyPressesLink() {
         clickLink("Key Presses");
         waitUntilUrlContains("key_presses");
