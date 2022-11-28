@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite 1">
-    <test name="Test 1">
+
+<suite name="Sequential Test Execution">
+    <test name="JavaScript Tests">
         <classes>
-            <class name="javascript.JavaScriptTests">
-<!--                <methods>-->
-<!--                    <include name = "searchCustomer"/>-->
-<!--                    <include name = "searchProduct"/>-->
-<!--                </methods>-->
-            </class>
+            <class name="javascript.JavaScriptTests"/>
+        </classes>
+    </test>
+    <test name="Dropdown Tests">
+        <classes>
+            <class name="dropdown.DropdownTests"/>
         </classes>
     </test>
 </suite>
+
+<!--<suite thread-count="2" verbose="1" annotations="JDK" parallel="tests"-->
+<!--       name="Parallel Test Execution">-->
+<!--    <test name="JavaScript Tests">-->
+<!--        <classes>-->
+<!--            <class name="javascript.JavaScriptTests"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Dropdown Tests">-->
+<!--        <classes>-->
+<!--            <class name="dropdown.DropdownTests"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--</suite>-->
