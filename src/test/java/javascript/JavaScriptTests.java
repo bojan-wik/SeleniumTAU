@@ -11,18 +11,18 @@ import java.util.List;
 
 public class JavaScriptTests extends BaseTest {
 
-    @Test
+    @Test (priority = 1)
     public void scrollToTableTest() {
         LargeAndDeepDom largeAndDeepDom = homePage.clickLargeAndDeepDomLink();
         largeAndDeepDom.scrollToTable();
     }
 
-    @Test
+    @Test (priority = 2)
     public void infiniteScrollTest() {
         homePage.clickInfiniteScrollLink().scrollToNthParagraph(5);
     }
 
-    @Test
+    @Test (priority = 3)
     public void addMultipleAttributeToDropdownTest() {
         DropdownPage dropdownPage = homePage.clickDropdownLink();
         dropdownPage.addMultipleAttribute();
