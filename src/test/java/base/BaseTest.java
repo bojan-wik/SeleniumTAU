@@ -6,6 +6,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
+import utils.WindowManager;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,6 +16,7 @@ public class BaseTest {
 
     private WebDriver driver;
     protected HomePage homePage;
+    protected WindowManager windowManager;
 
     @BeforeClass
     public void setUp() {
@@ -24,6 +26,7 @@ public class BaseTest {
         goHome();
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
+        windowManager = new WindowManager(driver);
     }
 
     @BeforeMethod
@@ -31,7 +34,7 @@ public class BaseTest {
         driver.get("https://the-internet.herokuapp.com/");
     }
 
-    @AfterClass
+//    @AfterClass
     public void tearDown() {
         driver.quit();
     }
