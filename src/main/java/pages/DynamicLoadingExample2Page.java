@@ -13,6 +13,10 @@ public class DynamicLoadingExample2Page extends BasePage {
     private By startButton = By.cssSelector("#start > button");
     private By helloWorldBox = By.cssSelector("#finish h4");
 
+    public boolean isStartButtonDisplayed() {
+        return getDriver().findElement(startButton).isDisplayed();
+    }
+
     public void clickStartButton() {
         getWait().until(ExpectedConditions.elementToBeClickable(startButton)).click();
     }
