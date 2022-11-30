@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -41,6 +42,11 @@ public class BasePage {
     public void clickLink(String linkText) {
         getWait().until(ExpectedConditions.visibilityOfElementLocated(By.linkText(linkText)))
                 .click();
+    }
+
+    public void openLinkInNewTab(String linkText) {
+        String clickLink = Keys.chord(Keys.CONTROL, Keys.ENTER);
+        getWait().until(ExpectedConditions.visibilityOfElementLocated(By.linkText(linkText))).sendKeys(clickLink);
     }
 
     public void switchToParentFrame() {
