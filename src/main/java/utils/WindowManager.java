@@ -32,23 +32,32 @@ public class WindowManager {
 
     /**
      * Switching to currently opened window or tab
-     * @param windowTitle Expected window or tab title
+     * @param by "title" or "url"
+     * @param titleOrUrl Expected window/tab title or URL (complete or URL path)
      */
-    public void switchToWindow(String windowTitle) {
+    public void switchToWindow(String by, String titleOrUrl) {
         Set<String> windowHandles = driver.getWindowHandles();
         System.out.println("Number of opened windows/tabs: " + windowHandles.size());
 
-        System.out.println("Window handles: ");
-        windowHandles.forEach(windowHandle -> System.out.println(windowHandle));
-
         for (String windowHandle : windowHandles) {
-            System.out.println("Switching to window: " + windowHandle);
             driver.switchTo().window(windowHandle);
-
-            String currentWindowTitle = driver.getTitle();
-            System.out.println("Current window title: " + currentWindowTitle);
-            if (currentWindowTitle.equals(windowTitle)) {
-                break;
+            switch (by) {
+                case "title":
+                    String currentWindowTitle = driver.getTitle();
+                    if (currentWindowTitle.equals(titleOrUrl)) {
+                        System.out.println("Switching to window with title: " + currentWindowTitle);
+                        break;
+                    }
+                    break;
+                case "url":
+                    String currentWindowURL = driver.getCurrentUrl();
+                    if (currentWindowURL.contains(titleOrUrl)) {
+                        System.out.println("Switching to window with URL: " + currentWindowURL);
+                        break;
+                    }
+                    break;
+                default:
+                    throw new IllegalArgumentException("No such option in the switch statement");
             }
         }
     }
