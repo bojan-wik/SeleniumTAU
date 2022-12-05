@@ -6,4 +6,4 @@ debug.log
 .allure
 .gradle
 /build/
-
+screenshots
