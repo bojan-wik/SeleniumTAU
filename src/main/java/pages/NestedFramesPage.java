@@ -13,13 +13,13 @@ public class NestedFramesPage extends BasePage {
         super(driver);
     }
 
-    private List<String> topPositions = new ArrayList<>(List.of("left", "middle", "right"));
-    private String topFrame = "frame-top";
-    private String leftFrame = "frame-left";
-    private String middleFrame = "frame-middle";
-    private String rightFrame = "frame-right";
-    private String bottomFrame = "frame-bottom";
-    private By frameBody = By.tagName("body");
+    private final List<String> topPositions = new ArrayList<>(List.of("left", "middle", "right"));
+    private final String topFrame = "frame-top";
+    private final String leftFrame = "frame-left";
+    private final String middleFrame = "frame-middle";
+    private final String rightFrame = "frame-right";
+    private final String bottomFrame = "frame-bottom";
+    private final By frameBody = By.tagName("body");
 
     private void switchToFrame(String framePosition) {
         if (topPositions.contains(framePosition)) {

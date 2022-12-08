@@ -10,8 +10,8 @@ public class HoversPage extends BasePage {
         super(driver);
     }
 
-    private By imageBox = By.className("figure");
-    private By imageCaptionBox = By.className("figcaption");
+    private final By imageBox = By.className("figure");
+    private final By imageCaptionBox = By.className("figcaption");
 
     /**
      * @param index value in the range 1-3
@@ -25,11 +25,11 @@ public class HoversPage extends BasePage {
         return new ImageCaption(image.findElement(imageCaptionBox));
     }
 
-    public class ImageCaption {
+    public static class ImageCaption {
 
-        private WebElement caption;
-        private By title = By.tagName("h5");
-        private By link = By.tagName("a");
+        private final WebElement caption;
+        private final By title = By.tagName("h5");
+        private final By link = By.tagName("a");
 
         public ImageCaption(WebElement caption) {
             this.caption = caption;

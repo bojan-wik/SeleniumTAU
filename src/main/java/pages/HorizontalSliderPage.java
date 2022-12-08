@@ -11,8 +11,8 @@ public class HorizontalSliderPage extends BasePage {
         super(driver);
     }
 
-    private By slider = By.cssSelector("input[type='range']");
-    private By resultText = By.id("range");
+    private final By slider = By.cssSelector("input[type='range']");
+    private final By resultText = By.id("range");
 
     /**
      * @param direction left or right

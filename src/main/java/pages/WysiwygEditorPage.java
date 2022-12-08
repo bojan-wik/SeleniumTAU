@@ -10,9 +10,9 @@ public class WysiwygEditorPage extends BasePage {
         super(driver);
     }
 
-    private String editorIframeId = "mce_0_ifr";
-    private By editorTextArea = By.id("tinymce");
-    private By increaseIndentButton = By.cssSelector("button[title='Increase indent']");
+    private final String editorIframeId = "mce_0_ifr";
+    private final By editorTextArea = By.id("tinymce");
+    private final By increaseIndentButton = By.cssSelector("button[title='Increase indent']");
 
     private void switchToEditorFrame() {
         getDriver().switchTo().frame(editorIframeId);

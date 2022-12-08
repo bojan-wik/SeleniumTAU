@@ -9,7 +9,7 @@ public class SecureAreaPage extends BasePage {
         super(driver);
     }
 
-    private By statusAlert = By.id("flash");
+    private final By statusAlert = By.id("flash");
 
     public String getAlertText() {
         return getDriver().findElement(statusAlert).getText();

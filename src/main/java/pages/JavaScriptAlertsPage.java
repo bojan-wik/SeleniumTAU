@@ -10,10 +10,10 @@ public class JavaScriptAlertsPage extends BasePage {
         super(driver);
     }
 
-    private By triggerAlertPopupButton = By.cssSelector("button[onclick='jsAlert()']");
-    private By triggerConfirmPopupButton = By.cssSelector("button[onclick='jsConfirm()']");
-    private By triggerPromptPopupButton = By.cssSelector("button[onclick='jsPrompt()']");
-    private By resultTextBox = By.id("result");
+    private final By triggerAlertPopupButton = By.cssSelector("button[onclick='jsAlert()']");
+    private final By triggerConfirmPopupButton = By.cssSelector("button[onclick='jsConfirm()']");
+    private final By triggerPromptPopupButton = By.cssSelector("button[onclick='jsPrompt()']");
+    private final By resultTextBox = By.id("result");
 
     public JavaScriptAlertsPage triggerAlertPopup() {
         getWait().until(ExpectedConditions.elementToBeClickable(triggerAlertPopupButton)).click();

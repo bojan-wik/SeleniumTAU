@@ -10,9 +10,9 @@ public class FileUploadPage extends BasePage {
         super(driver);
     }
 
-    private By fileUploadInput = By.id("file-upload");
-    private By fileSubmitButton = By.id("file-submit");
-    private By uploadedFilesResult = By.id("uploaded-files");
+    private final By fileUploadInput = By.id("file-upload");
+    private final By fileSubmitButton = By.id("file-submit");
+    private final By uploadedFilesResult = By.id("uploaded-files");
 
     /**
      * @param filePath The absolute path of the file to upload

@@ -14,8 +14,8 @@ public class DynamicLoadingExample1Page extends BasePage {
         super(driver);
     }
 
-    private By startButton = By.cssSelector("#start button");
-    private By helloWorldBox = By.cssSelector("#finish h4");
+    private final By startButton = By.cssSelector("#start button");
+    private final By helloWorldBox = By.cssSelector("#finish h4");
 
     // EXPLICIT WAIT
     public void clickStartButton() {

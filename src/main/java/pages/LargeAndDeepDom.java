@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 public class LargeAndDeepDom extends BasePage {
 
-    private By table = By.id("large-table");
+    private final By table = By.id("large-table");
 
     public LargeAndDeepDom(WebDriver driver) {
         super(driver);

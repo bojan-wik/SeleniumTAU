@@ -10,8 +10,8 @@ public class KeyPressesPage extends BasePage {
         super(driver);
     }
 
-    private By inputField = By.id("target");
-    private By resultBox = By.id("result");
+    private final By inputField = By.id("target");
+    private final By resultBox = By.id("result");
 
     public void enterText(String text) {
         getDriver().findElement(inputField).sendKeys(text);

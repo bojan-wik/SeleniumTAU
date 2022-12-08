@@ -10,7 +10,7 @@ public class ContextMenuPage extends BasePage {
         super(driver);
     }
 
-    private By box = By.id("hot-spot");
+    private final By box = By.id("hot-spot");
 
     public void rightClickInBox() {
         getWait().until(ExpectedConditions.elementToBeClickable(box));

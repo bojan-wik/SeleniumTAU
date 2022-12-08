@@ -21,7 +21,7 @@ public class BaseTest {
 
     private final static int IMPLICIT_WAIT_TIMEOUT = 5;
 
-    private BrowserGetter browserGetter = new BrowserGetter();
+    private final BrowserGetter browserGetter = new BrowserGetter();
     private WebDriver driver;
     protected HomePage homePage;
     protected WindowManager windowManager;

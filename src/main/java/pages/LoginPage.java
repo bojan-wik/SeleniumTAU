@@ -10,10 +10,10 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    private By usernameField = By.id("username");
-    private By passwordField = By.id("password");
-    private By loginButton = By.cssSelector("button[type='submit']");
-    private By loginFailedMessage = By.id("flash");
+    private final By usernameField = By.id("username");
+    private final By passwordField = By.id("password");
+    private final By loginButton = By.cssSelector("button[type='submit']");
+    private final By loginFailedMessage = By.id("flash");
 
     public LoginPage setCredentials(String fieldName, String input) {
         switch(fieldName) {

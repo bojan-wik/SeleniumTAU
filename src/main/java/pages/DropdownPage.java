@@ -15,7 +15,7 @@ public class DropdownPage extends BasePage {
         super(driver);
     }
 
-    private By dropdown = By.id("dropdown");
+    private final By dropdown = By.id("dropdown");
 
     private Select getDropdownElement() {
         return new Select(getDriver().findElement(dropdown));
