@@ -2,9 +2,10 @@ package utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 
-public class BrowserGetter {
+public class BrowserManager {
 
     private final static String CHROMEDRIVER_FILE_PATH = "src/test/resources/webdrivers/chromedriver.exe";
     private final static String EDGEDRIVER_FILE_PATH = "src/test/resources/webdrivers/msedgedriver.exe";
@@ -26,7 +27,7 @@ public class BrowserGetter {
         switch (browser) {
             case "chrome":
                 System.setProperty("webdriver.chrome.driver", CHROMEDRIVER_FILE_PATH);
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(getChromeOptions());
                 break;
             case "edge":
                 System.setProperty("webdriver.edge.driver", EDGEDRIVER_FILE_PATH);
@@ -38,5 +39,13 @@ public class BrowserGetter {
 
         driver.manage().window().maximize();
         return driver;
+    }
+
+    private ChromeOptions getChromeOptions() {
+        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("disable-infobars"); // usuwa pasek z info. że przeglądarka odpala testy autom.
+        options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+//        options.setHeadless(true);
+        return options;
     }
 }
