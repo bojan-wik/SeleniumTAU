@@ -10,7 +10,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pages.HomePage;
-import utils.BrowserGetter;
+import utils.BrowserManager;
+import utils.CookieManager;
 import utils.EventListener;
 import utils.WindowManager;
 
@@ -22,19 +23,21 @@ public class BaseTest {
 
     private final static int IMPLICIT_WAIT_TIMEOUT = 5;
 
-    private final BrowserGetter browserGetter = new BrowserGetter();
+    private final BrowserManager browserManager = new BrowserManager();
     private EventFiringWebDriver driver;
     protected HomePage homePage;
     protected WindowManager windowManager;
+    protected CookieManager cookieManager;
 
     @BeforeClass
     public void setUp() {
-        driver = new EventFiringWebDriver(browserGetter.getWebDriverViaParameter());
+        driver = new EventFiringWebDriver(browserManager.getWebDriverViaParameter());
         driver.register(new EventListener());
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT_TIMEOUT, TimeUnit.SECONDS); // Setting implicit wait
         goHome();
         homePage = new HomePage(driver);
         windowManager = new WindowManager(driver);
+        cookieManager = new CookieManager(driver);
     }
 
     @BeforeMethod
